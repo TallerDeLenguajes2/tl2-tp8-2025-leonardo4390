@@ -1,0 +1,29 @@
+
+
+@{
+    ViewData["Title"] = "Listado de productos";
+}
+
+<h1>Productos disponibles</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.IdProducto</td>
+                <td>@producto.Descripcion</td>
+                <td>$@producto.Precio</td>
+             
+            </tr>
+        }
+    </tbody>
+</table>

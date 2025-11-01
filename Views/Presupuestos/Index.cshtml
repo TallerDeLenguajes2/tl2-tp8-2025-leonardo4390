@@ -1,0 +1,32 @@
+
+
+@{
+    ViewData["Title"] = "Presupuestos";
+}
+
+<h1>Presupuestos disponibles</h1>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Destinatario</th>
+            <th>Fecha Creacion</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var presupuesto in Model)
+        {
+            <tr>
+                <td>@presupuesto.IdPresupuesto</td>
+                <td>@presupuesto.NombreDestinatario</td>
+                <td>@presupuesto.FechaCreacionFormateada</td>
+                <td>
+                    <a asp-action="Detalles" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-secondary"> Ver Detalle</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

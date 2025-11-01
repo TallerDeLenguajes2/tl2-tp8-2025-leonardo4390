@@ -1,0 +1,53 @@
+@model Presupuestos
+
+@{
+    ViewData["Title"] = "Detalles del Presupuesto";
+}
+
+<h2 class="mb-4 text-center">Detalles del Presupuesto</h2>
+
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Presupuesto N° @Model.IdPresupuesto</h5>
+        <p><strong>Destinatario:</strong> @Model.NombreDestinatario</p>
+        <p><strong>Fecha de creación:</strong> @Model.FechaCreacionFormateada</p>
+        <p><strong>Total productos:</strong> @Model.CantidadProductos()</p>
+        <p><strong>Monto sin IVA:</strong> $@Model.MontoPresupuesto()</p>
+        <p><strong>Monto con IVA (21%):</strong> $@Model.MontoPresupuestoConIva()</p>
+    </div>
+</div>
+
+<h4>Listado de productos</h4>
+
+@if (Model.Detalle != null && Model.Detalle.Any())
+{
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID Producto</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Detalle)
+            {
+                <tr>
+                    <td>@item.Producto.IdProducto</td>
+                    <td>@item.Producto.Descripcion</td>
+                    <td>@item.Cantidad</td>
+                    <td>$@item.Producto.Precio</td>
+                    <td>$@(item.Cantidad * item.Producto.Precio)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">No hay productos asociados a este presupuesto.</div>
+}
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Volver al listado</a>
