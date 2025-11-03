@@ -1,0 +1,25 @@
+@model Presupuestos
+
+<h2>Nuevo Presupuesto</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="NombreDestinatario"></label>
+        <input asp-for="NombreDestinatario" class="form-control"/>
+        <span asp-validation-for="NombreDestinatario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaCreacion"></label>
+        <input asp-for="FechaCreacion" class="form-control"type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark mt-3">Guardar</button>
+    <a asp-action="Index" class="btn btn-outline-dark mt-3">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

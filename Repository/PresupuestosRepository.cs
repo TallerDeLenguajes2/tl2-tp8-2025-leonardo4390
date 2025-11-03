@@ -153,7 +153,19 @@ public class PresupuestosRepository:IRepository<Presupuestos>
 
     public void Update(Presupuestos presupuesto)
     {
-        throw new NotImplementedException("Este método no se utiliza en PresupuestosRepository.");
+        var query = @"UPDATE Presupuestos SET nombreDestinatario = @nombre, fechaCreacion = @fecha 
+                  WHERE idPresupuesto = @id";
+
+        using (var connection = new SqliteConnection(cadenaConexion))
+        {
+            connection.Open();
+            var command = new SqliteCommand(query, connection);
+            command.Parameters.Add(new SqliteParameter("@nombre", presupuesto.NombreDestinatario));
+            command.Parameters.Add(new SqliteParameter("@fecha", presupuesto.FechaCreacion));
+            command.Parameters.Add(new SqliteParameter("@id", presupuesto.IdPresupuesto));
+            command.ExecuteNonQuery();
+        }
+
     }
 
 }

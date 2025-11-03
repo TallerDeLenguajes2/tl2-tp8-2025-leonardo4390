@@ -5,7 +5,7 @@
 }
 
 <h1>Presupuestos disponibles</h1>
-
+<a asp-action="Create" class="btn btn-outline-dark"> Crear nuevo presupuesto</a>
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
@@ -21,10 +21,19 @@
             <tr>
                 <td>@presupuesto.IdPresupuesto</td>
                 <td>@presupuesto.NombreDestinatario</td>
-                <td>@presupuesto.FechaCreacionFormateada</td>
+                <td>@presupuesto.FechaCreacion.ToString("dd-MM-yyy")</td>
                 <td>
-                    <a asp-action="Detalles" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-secondary"> Ver Detalle</a>
+                    <a asp-action="Detalles" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-outline dark btn-sm" title = "Ver Detalle"> 
+                    <i class="bi bi-search"></i>
 
+                    </a>
+                    
+                    <a asp-action="Edit" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-outline dark btn-sm" title="Editar">
+                    <i class="bi bi-pencil"></i>
+                    </a>
+                    <a asp-action="Delet" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-outline dark btn-sm" title="Eliminar">
+                    <i class="bi bi-trash"></i>
+                    </a>
                 </td>
             </tr>
         }
