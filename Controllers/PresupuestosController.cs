@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using tl2_tp8_2025_leonardo4390.Models;
 
 namespace tl2_tp8_2025_leonardo4390.Controllers;
@@ -7,10 +8,12 @@ namespace tl2_tp8_2025_leonardo4390.Controllers;
 public class PresupuestosController : Controller
 {
     private readonly IRepository<Presupuestos> _repositoryPresupuestos;
+    private readonly IRepository<Productos> _repositoryProductos;
 
     public PresupuestosController()
     {
         _repositoryPresupuestos = new PresupuestosRepository();
+        _repositoryProductos = new ProductoRepository();
     }
     
     public IActionResult Index()
@@ -31,27 +34,40 @@ public class PresupuestosController : Controller
     }
 
 
+    [HttpGet]
     public IActionResult Create()
     {
-        var nuevoPresupuesto = new Presupuestos
+        var vm = new PresupuestoViewModels
         {
-            FechaCreacion = DateTime.Now,
-            Detalle = new List<PresupuestosDetalles>()
+            FechaCreacion = DateTime.Now
         };
-        return View(nuevoPresupuesto);
+
+        return View(vm);
     }
+
 
     [HttpPost]
-    public IActionResult Create(Presupuestos presupuestos)
+    public IActionResult Create(PresupuestoViewModels vm)
     {
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
+            return View(vm);
+
+        var presupuesto = new Presupuestos
         {
-            _repositoryPresupuestos.Create(presupuestos);
-            return RedirectToAction(nameof(Index));
-        }
-        return View(presupuestos);
+            NombreDestinatario = vm.NombreDestinatario ?? vm.Email,
+            FechaCreacion = vm.FechaCreacion,
+            Detalle = new List<PresupuestosDetalles>()
+        };
+
+        _repositoryPresupuestos.Create(presupuesto);
+        
+        return RedirectToAction(nameof(Index));
+
     }
 
+
+
+    [HttpGet]
     public IActionResult Edit(int id)
     {
         var presupuesto = _repositoryPresupuestos.GetById(id);
@@ -59,25 +75,70 @@ public class PresupuestosController : Controller
         {
             return NotFound();
         }
-        return View(presupuesto);
+        var vm = new PresupuestoViewModels
+        {
+            IdPresupuesto = presupuesto.IdPresupuesto,
+            NombreDestinatario = presupuesto.NombreDestinatario,
+            FechaCreacion = presupuesto.FechaCreacion
+
+        };
+        return View(vm);
     }
 
     [HttpPost]
-    public IActionResult Edit(int id, Presupuestos presupuestos)
+    public IActionResult Edit(int id, PresupuestoViewModels vm)
     {
-        if (id != presupuestos.IdPresupuesto)
+        if (id != vm.IdPresupuesto)
         {
             return BadRequest();
         }
 
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
-            _repositoryPresupuestos.Update(presupuestos);
-            return RedirectToAction(nameof(Index));
+            return View(vm);
         }
-        return View(presupuestos);
+
+        var presupuesto = new Presupuestos
+        {
+            IdPresupuesto = vm.IdPresupuesto,
+            NombreDestinatario = vm.NombreDestinatario ?? vm.Email,
+            FechaCreacion = vm.FechaCreacion
+        };
+        _repositoryPresupuestos.Update(presupuesto);
+        return RedirectToAction("AgregarProducto", new { idPresupuesto = presupuesto.IdPresupuesto });
     }
 
+    [HttpGet]
+    public IActionResult AgregarProducto(int id)
+    {
+        var productos = _repositoryProductos.GetAll();
+
+        var model = new AgregarProductoViewModels
+        {
+            IdPresupuesto = id,
+            ListaProductos = new SelectList(productos, "IdProducto", "Descripcion")
+        };
+
+        return View(model);
+    }
+
+
+    [HttpPost]
+    public IActionResult AgregarProducto(AgregarProductoViewModels model)
+    {
+        if (!ModelState.IsValid)
+        {
+            var productos = _repositoryProductos.GetAll();
+            model.ListaProductos = new SelectList(productos, "IdProducto", "Descripcion");
+            return View(model);
+        }
+
+        _repositoryPresupuestos.AgregarDetalle(model.IdPresupuesto, model.IdProducto, model.Cantidad);
+
+        return RedirectToAction(nameof(Detalles), new { id = model.IdPresupuesto });
+    }
+    
+    [HttpGet]
     public IActionResult Delet(int id)
     {
         var producto = _repositoryPresupuestos.GetById(id);
