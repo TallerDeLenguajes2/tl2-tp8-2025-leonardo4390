@@ -19,6 +19,9 @@ public class ProductosController : Controller
 
     public IActionResult Index()
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
+
         List<Productos> productos = _repositoryProductos.GetAll();
         return View(productos);
     }
@@ -26,12 +29,16 @@ public class ProductosController : Controller
     [HttpGet]
     public IActionResult Create()
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
         return View();
     }
 
     [HttpPost]
     public IActionResult Create(Productos producto)
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
         if (ModelState.IsValid)
         {
             _repositoryProductos.Create(producto);
@@ -43,6 +50,8 @@ public class ProductosController : Controller
     [HttpGet]
     public IActionResult Edit(int id)
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
         var producto = _repositoryProductos.GetById(id);
         if (producto == null)
         {
@@ -54,6 +63,8 @@ public class ProductosController : Controller
     [HttpPost]
     public IActionResult Edit(int id, Productos producto)
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
         if (id != producto.IdProducto)
         {
             return BadRequest();
@@ -70,6 +81,9 @@ public class ProductosController : Controller
     [HttpGet]
     public IActionResult Delet(int id)
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
+
         var producto = _repositoryProductos.GetById(id);
         if (producto == null)
         {
@@ -81,10 +95,28 @@ public class ProductosController : Controller
     [HttpPost, ActionName("Delet")]
     public IActionResult DeletConfirirmed(int id)
     {
+        var securityCheck = CheckAdminPermissions();
+        if (securityCheck != null) return securityCheck;
         _repositoryProductos.Remove(id);
         return RedirectToAction(nameof(Index));
     }
     
+    private IActionResult? CheckAdminPermissions()
+    {
+        // 1. Usuario NO logueado
+        if (!_authService.IsAuthenticated())
+            return RedirectToAction("Index", "Login");
+
+        // 2. Usuario logueado pero NO Admin
+        if (!_authService.HasAccessLevel("Administrador"))
+            return RedirectToAction(nameof(AccesoDenegado));
+
+        return null; // OK, permitido
+    }
+    public IActionResult AccesoDenegado()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

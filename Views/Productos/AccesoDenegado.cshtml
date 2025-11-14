@@ -1,0 +1,22 @@
+@model dynamic
+@{
+    ViewData["Title"] = "Acceso Denegado";
+}
+
+<div class="text-center mt-4">
+
+    <h1 class="text-danger">❌ Acceso Denegado (403)</h1>
+    <hr />
+
+    <h2>No posee permisos para gestionar Productos</h2>
+
+    <p class="mt-3">
+        Esta sección es exclusiva para usuarios con rol <strong>Administrador</strong>.
+    </p>
+
+    <div class="mt-4">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Volver al Inicio</a>
+        <a asp-controller="Login" asp-action="Logout" class="btn btn-secondary">Cerrar Sesión</a>
+    </div>
+
+</div>

@@ -23,12 +23,16 @@ public class PresupuestosController : Controller
     
     public IActionResult Index()
     {
+        var check = CheckReadPermissions();
+        if (check != null) return check;
         List<Presupuestos> presupuestos = _repositoryPresupuestos.GetAll();
         return View(presupuestos);
     }
 
     public IActionResult Detalles(int id)
     {
+        var check = CheckReadPermissions();
+        if (check != null) return check;
         var presupuesto = _repositoryPresupuestos.GetById(id);
         if (presupuesto == null)
         {
@@ -42,6 +46,8 @@ public class PresupuestosController : Controller
     [HttpGet]
     public IActionResult Create()
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
         var vm = new PresupuestoViewModels
         {
             FechaCreacion = DateTime.Now
@@ -54,6 +60,8 @@ public class PresupuestosController : Controller
     [HttpPost]
     public IActionResult Create(PresupuestoViewModels vm)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
         if (!ModelState.IsValid)
             return View(vm);
 
@@ -75,6 +83,8 @@ public class PresupuestosController : Controller
     [HttpGet]
     public IActionResult Edit(int id)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
         var presupuesto = _repositoryPresupuestos.GetById(id);
         if (presupuesto == null)
         {
@@ -93,6 +103,8 @@ public class PresupuestosController : Controller
     [HttpPost]
     public IActionResult Edit(int id, PresupuestoViewModels vm)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
         if (id != vm.IdPresupuesto)
         {
             return BadRequest();
@@ -116,6 +128,8 @@ public class PresupuestosController : Controller
     [HttpGet]
     public IActionResult AgregarProducto(int id)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
         var productos = _repositoryProductos.GetAll();
 
         var model = new AgregarProductoViewModels
@@ -131,6 +145,9 @@ public class PresupuestosController : Controller
     [HttpPost]
     public IActionResult AgregarProducto(AgregarProductoViewModels model)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
+
         if (!ModelState.IsValid)
         {
             var productos = _repositoryProductos.GetAll();
@@ -146,6 +163,10 @@ public class PresupuestosController : Controller
     [HttpGet]
     public IActionResult Delet(int id)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
+
+
         var producto = _repositoryPresupuestos.GetById(id);
         if (producto == null)
         {
@@ -157,8 +178,38 @@ public class PresupuestosController : Controller
     [HttpPost, ActionName("Delet")]
     public IActionResult DeletConfirirmed(int id)
     {
+        var check = CheckAdminPermissions();
+        if (check != null) return check;
         _repositoryPresupuestos.Remove(id);
         return RedirectToAction(nameof(Index));
+    }
+
+    public IActionResult AccesoDenegado()
+    {
+        return View();
+    }
+
+    private IActionResult? CheckReadPermissions()
+    {
+        if (!_authService.IsAuthenticated())
+            return RedirectToAction("Index", "Login");
+
+        if (_authService.HasAccessLevel("Administrador") ||
+            _authService.HasAccessLevel("Cliente"))
+            return null; // OK
+
+        return RedirectToAction(nameof(AccesoDenegado));
+    }
+
+    private IActionResult? CheckAdminPermissions()
+    {
+        if (!_authService.IsAuthenticated())
+            return RedirectToAction("Index", "Login");
+
+        if (!_authService.HasAccessLevel("Administrador"))
+            return RedirectToAction(nameof(AccesoDenegado));
+
+        return null;
     }
 
 
