@@ -7,13 +7,18 @@ namespace tl2_tp8_2025_leonardo4390.Controllers;
 
 public class PresupuestosController : Controller
 {
-    private readonly IRepository<Presupuestos> _repositoryPresupuestos;
-    private readonly IRepository<Productos> _repositoryProductos;
+    private readonly IPresupuestoRepository _repositoryPresupuestos;
+    private readonly IProductoRepository _repositoryProductos;
+    private readonly IAuthenticationService _authService;
 
-    public PresupuestosController()
+     public PresupuestosController(
+        IPresupuestoRepository presupuestoRepo,
+        IProductoRepository productoRepo,
+        IAuthenticationService authService)
     {
-        _repositoryPresupuestos = new PresupuestosRepository();
-        _repositoryProductos = new ProductoRepository();
+        _repositoryPresupuestos = presupuestoRepo;
+        _repositoryProductos = productoRepo;
+        _authService = authService;
     }
     
     public IActionResult Index()

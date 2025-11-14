@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
 
-public class PresupuestosRepository:IRepository<Presupuestos>
+public class PresupuestosRepository:IPresupuestoRepository
 {
     private string cadenaConexion = "Data Source=DB/Tienda.db";
 
@@ -128,6 +128,7 @@ public class PresupuestosRepository:IRepository<Presupuestos>
             command.Parameters.Add(new SqliteParameter("@cantidad", cantidad));
 
             command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 

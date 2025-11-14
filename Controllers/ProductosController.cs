@@ -6,11 +6,15 @@ namespace tl2_tp8_2025_leonardo4390.Controllers;
 
 public class ProductosController : Controller
 {
-    private readonly IRepository<Productos> _repositoryProductos;
+    private readonly IProductoRepository _repositoryProductos;
+    private readonly IAuthenticationService _authService;
 
-    public ProductosController()
+    public ProductosController(
+        IProductoRepository productoRepo,
+        IAuthenticationService authService)
     {
-        _repositoryProductos = new ProductoRepository();
+        _repositoryProductos = productoRepo;
+        _authService = authService;
     }
 
     public IActionResult Index()
@@ -19,6 +23,7 @@ public class ProductosController : Controller
         return View(productos);
     }
 
+    [HttpGet]
     public IActionResult Create()
     {
         return View();
@@ -35,6 +40,7 @@ public class ProductosController : Controller
         return View(producto);
     }
 
+    [HttpGet]
     public IActionResult Edit(int id)
     {
         var producto = _repositoryProductos.GetById(id);
@@ -61,6 +67,7 @@ public class ProductosController : Controller
         return View(producto);
     }
 
+    [HttpGet]
     public IActionResult Delet(int id)
     {
         var producto = _repositoryProductos.GetById(id);

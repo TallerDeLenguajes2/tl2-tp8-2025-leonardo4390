@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
 
-public class ProductoRepository : IRepository<Productos>
+public class ProductoRepository : IProductoRepository
 {
     private string cadenaConexion = "Data Source=DB/Tienda.db";
 
