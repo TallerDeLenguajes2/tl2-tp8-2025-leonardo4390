@@ -27,8 +27,12 @@ builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IPresupuestoRepository, PresupuestosRepository>();
 builder.Services.AddScoped<IUserRepository, UsuarioRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddSession();
+
+
 
 var app = builder.Build();
+app.UseSession();
 
 // ----------------------
 // Pipeline

@@ -9,91 +9,91 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tl2_tp8_2025_leonardo4390
 build_property.RootNamespace = tl2_tp8_2025_leonardo4390
-build_property.ProjectDir = C:\Users\Alumno\Desktop\tl2-tp8-2025-leonardo4390\
+build_property.ProjectDir = C:\Users\sabim\Escritorio\tl2-tp8-2025-leonardo4390\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Alumno\Desktop\tl2-tp8-2025-leonardo4390
+build_property.MSBuildProjectDirectory = C:\Users\sabim\Escritorio\tl2-tp8-2025-leonardo4390
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Home/Index.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Home/Privacy.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Login/Index.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/AccesoDenegado.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/AccesoDenegado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXEFjY2Vzb0RlbmVnYWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/AgregarProducto.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/AgregarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXEFncmVnYXJQcm9kdWN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Create.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Delet.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Delet.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXERlbGV0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Detalles.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Detalles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXERldGFsbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Edit.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Index.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Presupuestos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Productos/AccesoDenegado.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Productos/AccesoDenegado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEFjY2Vzb0RlbmVnYWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Productos/Create.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Productos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Productos/Delet.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Productos/Delet.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERlbGV0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Productos/Edit.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Productos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Productos/Index.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Productos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Shared/Error.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/_ViewImports.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/_ViewStart.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alumno/Desktop/tl2-tp8-2025-leonardo4390/Views/Shared/_Layout.cshtml]
+[C:/Users/sabim/Escritorio/tl2-tp8-2025-leonardo4390/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-9oxf0uh1go

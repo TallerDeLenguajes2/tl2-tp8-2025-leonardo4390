@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alumno\\Desktop\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj": {}
+    "C:\\Users\\sabim\\Escritorio\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alumno\\Desktop\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj": {
+    "C:\\Users\\sabim\\Escritorio\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj",
+        "projectUniqueName": "C:\\Users\\sabim\\Escritorio\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj",
         "projectName": "tl2-tp8-2025-leonardo4390",
-        "projectPath": "C:\\Users\\Alumno\\Desktop\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj",
-        "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alumno\\Desktop\\tl2-tp8-2025-leonardo4390\\obj\\",
+        "projectPath": "C:\\Users\\sabim\\Escritorio\\tl2-tp8-2025-leonardo4390\\tl2-tp8-2025-leonardo4390.csproj",
+        "packagesPath": "C:\\Users\\sabim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sabim\\Escritorio\\tl2-tp8-2025-leonardo4390\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\sabim\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

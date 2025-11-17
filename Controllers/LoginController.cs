@@ -37,10 +37,18 @@ public class LoginController : Controller
     }
 
     // Cerrar sesión
-    [HttpGet]
+    // [HttpGet]
+    // public IActionResult Logout()
+    // {
+    //     _authenticationService.Logout();
+    //     return RedirectToAction("Index");
+    // }
+
+    [HttpPost]
     public IActionResult Logout()
     {
-        _authenticationService.Logout();
-        return RedirectToAction("Index");
+        HttpContext.Session.Clear(); // elimina todas las variables de sesión
+        return RedirectToAction("Index","Home");
     }
+
 }
