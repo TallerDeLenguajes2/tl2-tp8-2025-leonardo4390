@@ -29,6 +29,7 @@ public class LoginController : Controller
         // Validar credenciales
         if (_authenticationService.Login(model.Username, model.Password))
         {
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -36,14 +37,7 @@ public class LoginController : Controller
         return View("Index", model);
     }
 
-    // Cerrar sesión
-    // [HttpGet]
-    // public IActionResult Logout()
-    // {
-    //     _authenticationService.Logout();
-    //     return RedirectToAction("Index");
-    // }
-
+    
     [HttpPost]
     public IActionResult Logout()
     {
